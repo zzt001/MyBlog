@@ -1,3 +1,7 @@
+.custom-haojen-container .post-preview:nth-child(1) h2, .custom-haojen-container .post-preview:nth-child(1) .post-meta, .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+    color: #000555;
+}
+
 @media (min-width: 1200px) {
     .post-cont-iner,
     .sidebar-container {
@@ -141,7 +145,7 @@ img.shadow {
 
 .table th,
 .table td {
-    border: 1px solid #eee !important;
+    border: 1px solid #000555 !important;
 }
 
 hr.small {
@@ -395,7 +399,7 @@ article blockquote cite:before{
 .intro-header .site-heading,
 .intro-header .page-heading,
 .intro-header .post-heading{
-    color: #fff;
+    color: #000555;
 }
 
 .intro-header .site-heading h1,
@@ -437,7 +441,7 @@ article blockquote cite:before{
 .intro-header .post-heading .meta {
     font-weight: 300;
     font-size: 14px;
-    color: #eee;
+    color: #000555;
 }
 
 .intro-header .post-heading .meta span {
@@ -581,7 +585,7 @@ footer .copyright a:focus {
     position: relative;
     margin-bottom: 0;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid #fffeee;
 }
 
 .floating-label-form-group input,
@@ -613,7 +617,7 @@ footer .copyright a:focus {
 
 .floating-label-form-group:not(:first-child) {
     padding-left: 14px;
-    border-left: 1px solid #eeeeee;
+    border-left: 1px solid #fffeee;
 }
 
 .floating-label-form-group-with-value label {
@@ -626,7 +630,7 @@ footer .copyright a:focus {
 }
 
 form .row:first-child .floating-label-form-group {
-    border-top: 1px solid #eeeeee;
+    border-top: 1px solid #fffeee;
 }
 
 .btn {
@@ -997,15 +1001,15 @@ img::-moz-selection {
     bottom: 0;
     padding-bottom: 20px;
     opacity: 0.6;
-    color: #fff;
+    color: #000555;
 }
 
 .page-fullscreen footer .copyright {
-    color: #fff;
+    color: #000555;
 }
 
 .page-fullscreen footer .copyright a {
-    color: #fff;
+    color: #000555;
 }
 
 .page-fullscreen footer .copyright a:hover {
@@ -1050,7 +1054,7 @@ img::-moz-selection {
     margin-top: 30px;
     list-style: none;
     color: darkgrey;
-    border-left: #eee 3px solid;
+    border-left: #000555 3px solid;
     padding-left: 12px;
 }
 
@@ -1082,7 +1086,7 @@ img::-moz-selection {
     max-height: 81%;
     overflow: auto;
     z-index:1;
-    background-color: #fff;
+    background-color: #000555;
 }
 
 .navbar-custom.is-fixed {
@@ -1187,19 +1191,20 @@ img::-moz-selection {
     opacity: .9;
 }
 .site-heading h5 a{
-    color: #fff;
+    color: #4e0e22;
     font-size: 18px;
     letter-spacing: 1px;
     font-weight: 400;
 }
 .site-heading p {
     margin: 0;
-    color: #eee;
+    color: #4e0e22;
     font-size: 15px;
 }
 .custom-haojen-container{
     padding-top: 0;
 }
+
 @media (min-width: 992px) {
     .custom-haojen-container {
         padding-top: 90px;
