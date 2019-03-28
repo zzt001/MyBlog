@@ -1,7 +1,3 @@
-.custom-haojen-container .post-preview:nth-child(1) h2, .custom-haojen-container .post-preview:nth-child(1) .post-meta, .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
-    color: #000555;
-}
-
 @media (min-width: 1200px) {
     .post-cont-iner,
     .sidebar-container {
