@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        JWT介绍｜CDaemon
+        CDaemon
         
     </title>
 
-    <link rel="canonical" href="https://codingdaemon.com/2019/03/16/JWT介绍/">
+    <link rel="canonical" href="https://codingdaemon.com/tags/Life/">
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -43,7 +43,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="true" data-istags="false
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost="false" data-istags="true
 " data-ishome="false">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -132,178 +132,134 @@
 
 <!-- Main Content -->
 
-<!--only post-->
 
-
-<img class="wechat-title-img" src="/images/post.jpg">
-
-
-<style>
-    
-    header.intro-header {
-        background-image: url('/images/post.jpg')
-    }
-
-    
-</style>
-
-<header class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
-                <div class="post-heading">
-                    <h1>JWT介绍</h1>
-                    
-                    <span class="meta">
-                         作者 Coding Daemon
-                        <span>
-                          日期 2019-03-16
-                         </span>
-                    </span>
-                    <div class="tags text-center">
-                        
-                        <a class="tag" href="/tags/#security" title="security">security</a>
-                        
+<!-- Page Header -->
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
+    <div class="row">
+        <header class="intro-header">
+            <div class="container">
+                <div class="site-heading text-center">
+                    <div class="about-me">
+                        <!--移动端头部显示-->
+                        <img src>
+                        <h5><a href="/about/">Coding Daemon</a></h5>
+                        <p>Self-Motivated Daemon</p>
                     </div>
                 </div>
             </div>
-        </div>
+        </header>
     </div>
-    <div class="post-title-haojen">
-        <span>
-            JWT介绍
-        </span>
-    </div>
-</header>
-
-<!-- Post Content -->
-<article>
-    <div class="container">
-        <div class="row">
-            <!-- Post Container -->
-            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <p>JWT介绍<br><a href="https://www.jianshu.com/p/6307c89fe3fa" target="_blank" rel="noopener">https://www.jianshu.com/p/6307c89fe3fa</a>  这篇讲的比较好 但是有些文件没有详细解释<br><a href="https://www.jianshu.com/p/26fb66628bef" target="_blank" rel="noopener">https://www.jianshu.com/p/26fb66628bef</a> 这个也可以看看 </p>
-<p><a href="https://www.youtube.com/watch?v=926mknSW9Lo" target="_blank" rel="noopener">https://www.youtube.com/watch?v=926mknSW9Lo</a> 这个视频将jwt讲的很清楚</p>
-<p>什么是JWT：<br>JWT-Json Web Token- 是一种 open Standard (RFC7519), 所有人都可以使用的一种标准化 （协议）<br>这个标注实现了:</p>
-<ol>
-<li>securely transfer information between any two bodies. (这里理解的body 可以是 server 可以是client 可以是各种终端)<ol start="2">
-<li>Digitally signed: information is verified and trusted. (信息是签名和被信任的， 可靠性）</li>
-</ol>
-</li>
-</ol>
-<p>Why JWT （jwt到底好在哪里? 我为什么一定要用它？？）：</p>
-<ol>
-<li>Compact： 轻量呀。 你可以将jwt放在url上，post request里， 或者http header上。</li>
-<li>Fast transmission: 因为轻呀，所以传输就快， overhead就小。</li>
-<li>Self-contained: 可以带上user的一些非敏感信息哦，一定程度上你不需要每次去query数据库拿user meta info。</li>
-</ol>
-<p>WHERE（jwt一般用在哪里呢呢呢？）：<br>应用场景主要分为：</p>
-<ol>
-<li>authentication ： 验证用户的权限/身份。  </li>
-<li>information exchange： payload部分可以带一些信息</li>
-</ol>
-<p>HOW (为什么jwt听上去这么厉害？？）：<br>这里就要讲到jwt的实现和结构了<br>下面就是一个jwt的结构<br>aaaaaaaaaaaaaaaa.bbbbbbbbbbb.cccccccccccccccc</p>
-<p>分为三部分，以’.’隔开：<br>a. header： 长这样：<br>{<br>    “alg”: 加密算法的名字, 比如 ”HS256”， “RSA”<br>    “typ”：“JWT” (这不是废话嘛。）<br>}<br>这个json 经过base64加密之后就是 part a 啦。</p>
-<p>b.payload: 运载的东西<br>也是一个json， 里面带了claims。<br>claims 就是 用户信息 或者 meta data 信息的一些key pairs<br>{<br>     “sub”: xxxxxx  （该token给了哪个user）<br>     “name”:<br>     “role”:<br>}<br>payload的信息除了已有的一些reserved 信息， 还可以自己加哦<br>最后经过base64加密为 part b.</p>
-<p>c. signature: 签名<br>前两部分经过base64加密 在网络中实际上是不安全的，可以被解密。<br>而c部分才是jwt验证的关键<br>他就是将 base64Encode(header) + “.” + base64Encode(payload) 作为输入<br>secret key 作为加密的key<br>经过 之前alg 的算法 比如HMAC256来加密得到。<br>（secret key会生成并保存在验证的server端。）</p>
-<p>具体过程</p>
-<ol>
-<li>用户登陆 ： 用户尝试登陆， 验证帐号密码（或者证书什么的）, 拿到token</li>
-<li>用户携带token, （作为header 是  Authorization：Bearer token）请求server</li>
-<li>server 验证用户token, 通过HMAC256签名验证机制（不懂这一部分的可以先了解一下 ”什么是hmac256签名“）</li>
-<li>验证通过则放行， 否则拒绝</li>
-</ol>
-
-                <hr>
-                
-
-                <ul class="pager">
-                    
-                    <li class="previous">
-                        <a href="/2019/03/30/My Plan/" data-toggle="tooltip" data-placement="top" title>&larr; Previous Post</a>
-                    </li>
-                    
-                    
-                </ul>
-
-                
-
-                
-                <!-- disqus 评论框 start -->
-                <div class="comment">
-                    <div id="disqus_thread" class="disqus-thread"></div>
-                </div>
-                <!-- disqus 评论框 end -->
-                
+</div>
+<!-- Main Content -->
+<div class="container custom-haojen-container">
+    <!-- Post Container -->
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
+            <!-- Main Content -->
 
 
-                <!--加入新的评论系统-->
-                
 
-                
-
-            </div>
-
-            <div class="hidden-xs col-sm-3 toc-col">
-                <div class="toc-wrap">
-                    
-                </div>
-            </div>
+<div class="post-preview  " style="background-image: url('/images/post.jpg')">
+    <a href="/2019/03/30/Life/My Plan/">
+        <h2 class="post-title">
+            My Goal
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2019-03-30
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                Major goalBecome a software architect, leading a product in a company.(startup or big name)
+split into smaller goals
+Yearly: learned infra basic ski..
+            </p>
         </div>
+    </a>
 
-        <div class="row">
-            <!-- Sidebar Container -->
+</div>
 
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
+<hr>
 
-                <!-- Featured Tags -->
-                
-                <section>
-                    <!-- no hr -->
-                    <h5 class="text-center">
-                        <a href="/tags/">FEATURED TAGS</a>
-                    </h5>
-                    <div class="tags">
+
+
+
+<!-- 翻页 pager -->
+
+<ul class="pager">
+    
+    
+</ul>
+
+
+        </div>
+        <!-- Sidebar Container -->
+        <div class="
+                col-lg-3 col-lg-offset-0
+                col-md-3 col-md-offset-0
+                col-sm-12
+                col-xs-12
+                sidebar-container
+            ">
+
+            <!-- About Me -->
+            <section class="visible-md visible-lg" style="padding: 0 18px">
+                <div class="short-about">
+                    <!--侧边栏头像-->
+                    
+                    <h5><a href="/about/">Coding Daemon</a></h5>
+                    
+                    <p>Self-Motivated Daemon</p>
+                    
+                    <hr>
+                    <!-- SNS Link 社交 -->
+                    <ul class="list-inline">
                         
-                        <a class="tag" href="/tags/#security" title="security">security</a>
                         
-                    </div>
-                </section>
-                
+                        
 
-                <!-- Friends Blog -->
-                
-            </div>
+                        
+
+                        
+
+                        
+                        <li>
+                            <a target="_blank" href="https://github.com/zzt001">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                        </span>
+                            </a>
+                        </li>
+                        
+
+                        
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Featured Tags  标签 -->
+            
+            <section>
+                <div class="tags">
+                    
+                    
+                    <a href="/tags/#security" title="security" rel="1">security</a>
+                    
+                    
+                    
+                    <a href="/tags/#Life" title="Life" rel="1">Life</a>
+                    
+                    
+                </div>
+            </section>
+            
+
+            
+
         </div>
-
     </div>
-</article>
-
-
-
-<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES * * */
-    var disqus_shortname = "zhangzitong001";
-    var disqus_identifier = "https://codingdaemon.com/2019/03/16/JWT介绍/";
-    var disqus_url = "https://codingdaemon.com/2019/03/16/JWT介绍/";
-
-    (function () {
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<!-- disqus 公共JS代码 end -->
-
-
-
-
+</div>
 
 <!-- Footer -->
 <!-- Footer -->

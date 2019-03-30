@@ -141,7 +141,7 @@ img.shadow {
 
 .table th,
 .table td {
-    border: 1px solid #000555 !important;
+    border: 1px solid #eee !importan
 }
 
 hr.small {
@@ -1082,7 +1082,7 @@ img::-moz-selection {
     max-height: 81%;
     overflow: auto;
     z-index:1;
-    background-color: #000555;
+    background-color: #fff;
 }
 
 .navbar-custom.is-fixed {
